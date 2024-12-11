@@ -1,0 +1,12 @@
+.form-group {
+    display: flex;
+    flex-direction: column;
+
+    label {
+        margin-bottom: 8px;
+    }
+
+    input { 
+        margin-bottom: 8px;
+    }
+}

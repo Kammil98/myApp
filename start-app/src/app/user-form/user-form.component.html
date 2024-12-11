@@ -1,0 +1,51 @@
+<div class="card my-5">
+    <div class="card-body">
+      <form (ngSubmit)="submitForm()" [formGroup]="userForm">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text"
+            class="form-control" 
+            id="name" 
+            formControlName="name" 
+            placeholder="Enter your name"
+            required>
+            <div *ngIf="userForm.get('name')?.hasError('required') && isTouchedOrDirty('name')" 
+              class="cross-validation-error-message alert alert-danger">
+              Name is required 
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="surname">Surname</label>
+          <input type="text"
+            class="form-control" 
+            id="surname" 
+            formControlName="surname" 
+            placeholder="Enter your surname"
+            required>
+            <div *ngIf="userForm.get('surname')?.hasError('required') && isTouchedOrDirty('surname')" 
+              class="cross-validation-error-message alert alert-danger">
+              Surname is required 
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text"
+            class="form-control" 
+            id="email" 
+            formControlName="email" 
+            placeholder="Enter your email address"
+            required>
+            <div *ngIf="userForm.get('email')?.hasError('required') && isTouchedOrDirty('email')" 
+              class="cross-validation-error-message alert alert-danger">
+              Email is required 
+            </div>
+            <div *ngIf="userForm.get('email')?.hasError('email') && isTouchedOrDirty('email')" 
+              class="cross-validation-error-message alert alert-danger">
+              Provided text is not an email
+            </div>
+        </div>
+        <button type="submit"
+          class="btn btn-info">Submit</button>
+      </form>
+    </div>
+  </div>
